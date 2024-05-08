@@ -1,0 +1,114 @@
+/* Write a JS Program to find max and min in the given list of integers using classes
+    2 
+    3 Input Format :
+    4 --------------
+    5 Line-1 : N space separated numbers, list[]
+    6 
+    7 Output Format :
+    8 ---------------
+    9 Line 1: A Number, Max of given list
+   10 Line 2: A Number, Min of given list
+   11 
+   12 Sample Input 1 :
+   13 ----------------
+   14 56 43 21 67 33
+   15 
+   16 Sample Output 1:
+   17 ----------------
+   18 67
+   19 21
+   20 
+   21 Sample Input 2 :
+   22 ----------------                                                                                                                      
+   23 23 45 23 67 11 34 56
+   24 
+   25 Sample Output 2:
+   26 ----------------
+   27 67                                                                                                                      
+   28 11
+   29 
+   30 */
+   31 
+   32 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   33 let list;
+   34 readline.question('',function(line){
+   35         list = line.split(" ").map(Number);
+   36         //const numslist = new MaxMin(list);
+   37          //const max = numslist.getmax();
+   38   //const min = numslist.getmin();
+   39   //console.log(max);
+   40   //console.log(min);
+   41         solution(list);
+   42         readline.close();
+   43     });
+   44 
+   45 /*class MaxMin
+   46   {
+   47       constructor(nums)
+   48       {
+   49           this.nums = nums;
+   50       }
+   51       getmax()
+   52       {
+   53           return Math.max(...this.nums);
+   54           //console.log( Math.max(...this.nums));
+   55       }
+   56       getmin()
+   57       {
+   58           return Math.min(...this.nums);
+   59           //console.log(Math.min(...this.nums));
+   60       }
+   61   }*/
+   62   
+   63 function solution(list){
+   64   
+   65   class MaxMin
+   66   {
+   67       constructor(nums)
+   68       {
+   69           this.nums = nums;
+   70       }
+   71       getmax()
+   72       {
+   73           return Math.max(...this.nums);
+   74           //console.log( Math.max(...this.nums));
+   75       }
+   76       getmin()
+   77       {
+   78           return Math.min(...this.nums);
+   79           //console.log(Math.min(...this.nums));
+   80       }
+   81   }
+   82   const numslist = new MaxMin(list);
+   83   const max = numslist.getmax();
+   84   const min = numslist.getmin();
+   85   console.log(max);
+   86   console.log(min);
+   87     /*
+   88     Here Create an instance of the MaxMin class with the parsed list of numbers.
+   89     */
+   90 
+   91     
+   92     /*
+   93     Call the max and min methods of the MaxMin instance 
+   94     to find the maximum and minimum numbers in the list, respectively.
+   95     */
+   96     
+   97     
+   98     
+   99     /*
+  100     Display the maximum and minimum numbers to the user in differen lines.
+  101     */
+  102     
+  103 
+  104 }
+  105 
+  106 /*Create a MaxMin class with the following methods:
+  107 constructor(list): Initializes the class with the list of numbers.
+  108 max(): Returns the maximum number in the list.
+  109 min(): Returns the minimum number in the list.
+  110 */
+  111 
+  112 
+  113 
+Submitted On Thursday, 29 February 2024, 10:38 AM

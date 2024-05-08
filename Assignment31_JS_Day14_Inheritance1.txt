@@ -1,0 +1,126 @@
+/* 
+    2 Write a JavaScript program that 
+    3 
+    4 creates a class called Product with properties for product ID, name, and price. 
+    5 Include a method to calculate the total price by multiplying the price by the quantity. 
+    6 
+    7 Create a subclass called PersonalCareProduct that inherits from the Product class 
+    8 and adds an additional property for the warranty period. 
+    9 
+   10 Override the total price calculation method to include the warranty period. 
+   11 
+   12 Create an instance of the PersonalCareProduct class and calculate its total price.
+   13 
+   14 Hint: Warranty cost based on warranty period (assuming 10% of base price)
+   15 basePrice = price * quantity
+   16 and hence totalPrice is basePrice + warrentyCost
+   17 
+   18 NOTE: Always consider quantity as 3.
+   19 
+   20 Input Format:
+   21 -------------
+   22 Line-1: A number, productId
+   23 Line-2: A string, productName
+   24 Line-3: A number, price
+   25 Line-4: A string, warrentyPeriod
+   26 
+   27 Output Format: 
+   28 --------------
+   29 Line 1: An string, statement of bill(Refer Sample Output)
+   30 
+   31 
+   32 
+   33 Sample Input :
+   34 --------------
+   35 123
+   36 Electric Toothbrush 
+   37 25.99
+   38 2
+   39 
+   40 
+   41 Sample Output :
+   42 ---------------
+   43 Total Price for Electric Toothbrush (Quantity: 3): $79.53
+   44 
+   45 */
+   46 let readline=require('readline').createInterface({input:process.stdin,output:process.stdin});
+   47 let productId, productName, price, warrentyPeriod, il=1;
+   48 readline.on('line',function(line){
+   49     if(il==4){
+   50         warrentyPeriod = parseInt(line);
+   51         solution(productId, productName, price, warrentyPeriod);
+   52         readline.close();
+   53     }
+   54     else if(il==3)
+   55     {
+   56         price = parseFloat(line);
+   57         il++;
+   58     }
+   59     else if(il==2)
+   60     {
+   61         productName = line;
+   62         il++;
+   63     }
+   64     else
+   65     {
+   66         productId = line;
+   67         il++;
+   68     }
+   69 });
+   70 
+   71 function solution(productId, productName, price, warrentyPeriod){
+   72     // Here Create an instance of PersonalCareProduct
+   73 
+   74 const p = new PersonalcarProduct(productId, productName, price, warrentyPeriod);
+   75     // Calculate total price for a quantity of 3 units
+   76     const totalPrice = p.calculateTotalprice().toFixed(2);
+   77     //Total Price for Electric Toothbrush (Quantity: 3): $79.53
+   78     console.log(`Total Price for ${productName} (Quantity: 3): $${totalPrice}`);
+   79 
+   80     
+   81 }
+   82 
+   83 /*
+   84 Here write your code to create a class called Product 
+   85      with 3 properties and one method called calculateTotalPrice()
+   86 */
+   87 class Product
+   88 {
+   89     constructor(productId,name,price)
+   90     {
+   91         this.productId = productId;
+   92         this.name = name;
+   93         this.price = price;
+   94     }
+   95     calculateTotalprice()
+   96     {
+   97         const quan = 3;
+   98         return this.price * quan;
+   99     }
+  100 }
+  101 class PersonalcarProduct extends Product
+  102 {
+  103     constructor(productId,name,price,warranty)
+  104     {
+  105         super(productId,name,price);
+  106         this.warranty = warranty;
+  107     }
+  108     calculateTotalprice()
+  109     {
+  110         // const quan = 3;
+  111         const base = super.calculateTotalprice();
+  112         const waracost = (base*this.warranty*0.01);
+  113         return base+ waracost;
+  114     }
+  115     
+  116 }
+  117 
+  118 
+  119 
+  120 
+  121 /*
+  122 Here write your code to create a subclass called PersonalCareProduct 
+  123      that inherits from the Product class
+  124 */
+  125 
+ 

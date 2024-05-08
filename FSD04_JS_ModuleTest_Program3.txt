@@ -1,0 +1,145 @@
+Given an array of integers nums and an integer target, 
+    3 find all unique pairs of indices (i, j) such that nums[i] + nums[j] == target. 
+    4 The function should return a list of lists, 
+    5 where each inner list contains two integers representing the indices of the numbers. 
+    6 The indices in each pair should be in non-decreasing order. 
+    7 If no such pairs exist, return an empty list. 
+    8 
+    9 Note : Ensure that each pair is unique and does not contain the same element twice.
+   10 
+   11 
+   12 Input Format :
+   13 --------------
+   14 Line 1 : N space-separated numbers
+   15 Line 2  : A Number
+   16 
+   17 Output Format :
+   18 ---------------
+   19 Line 1 : List of pairs
+   20 
+   21 
+   22 Sample Input 1:
+   23 ---------------
+   24 2 7 11 15
+   25 9
+   26 
+   27 Sample Output 1:
+   28 ---------------
+   29 [ [ 0, 1 ] ]
+   30 
+   31 Sample Input 2:
+   32 ---------------
+   33 10 20 30 40 50
+   34 100
+   35 
+   36 Sample Output 2:
+   37 ----------------
+   38 []
+   39 
+   40 
+   41 Sample Input 3:
+   42 ---------------
+   43 5 5 5 5
+   44 10
+   45 
+   46 Sample Output 3:
+   47 ----------------
+   48 [ [ 0, 1 ], [ 1, 2 ], [ 2, 3 ] ]
+   49 
+   50 
+   51 */
+   52 
+   53 const readline = require('readline');
+   54 const rl = readline.createInterface({
+   55     input: process.stdin,
+   56     output: process.stdout
+   57 });
+   58 rl.question('', (numsInput) => {
+   59     const nums = numsInput.split(' ').map(num => parseInt(num.trim(), 10));
+   60     rl.question('', (targetInput) => {
+   61         const target = parseInt(targetInput.trim(), 10);
+   62         const result = Solution(nums, target);
+   63         console.log(result);
+   64         rl.close();
+   65     });
+   66 });
+   67 function Solution(nums, target) {
+   68     //Here Write your logic
+   69    /* const pairs = [];
+   70     const seen = new Set();
+   71     for(let i =0;i<nums.length;i++)
+   72     {
+   73         for(let j =i+1;j<nums.length;j++)
+   74         {
+   75             if(nums[i]+nums[j]===target && !seen.has(i,j) )
+   76             {
+   77                 pairs.push([i,j]);
+   78                 seen.add(i,j);
+   79             }
+   80         }
+   81     }
+   82     
+   83    let s = new Set();
+   84     let res = pairs.filter(p=>{
+   85         if(!s.has(p[0])){
+   86             s.add(p[0]);
+   87             return true;
+   88         }
+   89         return false;
+   90     })
+   91     return res;
+   92     //return pairs;
+   93 */
+   94 /*const pairs = [];
+   95     const seen = new Set();
+   96     for(let i =0;i<nums.length;i++)
+   97     {
+   98         for(let j =i+1;j<nums.length;j++)
+   99         {
+  100             if(nums[i]+nums[j]===target && !seen.has(i,j))
+  101             {
+  102                 pairs.push([Math.min(i,j),Math.max(i,j)]);
+  103                 seen.add(i,j);
+  104             }
+  105         }
+  106     }
+  107     pairs.sort((a,b)=>a[0]-b[0]);
+  108     let unique = [];
+  109     let lastseenindex = -1;
+  110     for(let p of pairs)
+  111     {
+  112         if(p[0]!==lastseenindex)
+  113         {
+  114             unique.push(p);
+  115             lastseenindex = p[0];
+  116         }
+  117     }
+  118     return unique;*/
+  119     const pairs = [];
+  120     const seen = new Set();
+  121     for(let i =0;i<nums.length;i++)
+  122     {
+  123         for(let j =i+1;j<nums.length;j++)
+  124         {
+  125             if(nums[i]+nums[j]===target && !seen.has(Math.min(i,j),Math.max(i,j)))
+  126             {
+  127                 pairs.push([Math.min(i,j),Math.max(i,j)]);
+  128                 seen.add(Math.min(i,j),Math.max(i,j));
+  129             }
+  130         }
+  131     }
+  132     pairs.sort((a,b)=>a[0]-b[0]);
+  133   /*  let unique = [];
+  134     let lastseenindex = -1;
+  135     for(let p of pairs)
+  136     {
+  137         if(p[0]!==lastseenindex)
+  138         {
+  139             unique.push(p);
+  140             lastseenindex = p[0];
+  141         }
+  142     }*/
+  143     return  pairs;
+  144 }
+  145 
+  146 

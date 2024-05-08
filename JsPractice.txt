@@ -1,0 +1,88 @@
+const PERSON ={
+    2     name:"Pooja",
+    3     age: 40,
+    4     address:"hyderabad",
+    5     ssn :1234545,
+    6     display:function()
+    7     {
+    8         console.log(`${PERSON.name} lives is ${PERSON.address}`);
+    9     }
+   10 }
+   11 console.log(PERSON)
+   12 console.log(PERSON.name);
+   13 console.log(PERSON.address);
+   14 PERSON.display();
+   15 //using[] notation
+   16 console.log(PERSON["age"]);
+   17 
+   18 const STUD={
+   19     name:"Gayathri",
+   20     section:"CS",
+   21     rollno:122,
+   22     age:21,
+   23     marks:{science:23,physics:12,maths:12},
+   24     hobbies:["playing","dancing"],
+   25      name:"Gayathris",
+   26    // dis:function()
+   27    dis()
+   28     {
+   29         console.log(`${STUD.hobbies[0]} enjouig`);
+   30         let total =STUD.marks.science+STUD.marks.physics+STUD.marks.maths;
+   31         let avg = total/3;
+   32         console.log(total);
+   33         console.log(avg);
+   34         
+   35     },
+   36     m2()
+   37     {
+   38         console.log("M2 called");
+   39     },
+   40     for:"Im using for",
+   41     let:"Im using let",
+   42     return: "Im using return"
+   43     
+   44      
+   45 }
+   46 STUD.address ="AURDD";
+   47 console.log(STUD.name);
+   48 console.log(STUD.for);
+   49 STUD.dis();
+   50 STUD["dis"]();
+   51 
+   52 for(let val in STUD)
+   53 {
+   54     console.log(val,"---",STUD[val]);
+   55 }
+   56 console.log("*****************");
+   57 console.log(Object.keys(STUD));
+   58 console.log("*****************");
+   59 console.log(Object.values(STUD));
+   60 console.log("*****************");
+   61 console.log(Object.entries(STUD));
+   62 console.log("*****************");
+   63 console.log("*****************");
+   64 for(let [k,v] of Object.entries(STUD))
+   65 {
+   66     console.log(k,"---",v);
+   67 }
+   68 console.log(STUD.hasOwnProperty('lastname'));
+   69 console.log(STUD.hasOwnProperty('hobbies'));
+   70 
+   71 let {age,rollno,...res_param} = STUD;
+   72 console.log(age,rollno,res_param);
+   73 
+   74 const DOG ={
+   75     species:"dog",
+   76     sound:"woof, woof",
+   77     color:"brown"
+   78 }
+   79 
+   80 const DOG1 ={
+   81     species:"dogs",
+   82     sound:"woofs, woofs",
+   83     color:"browns"
+   84 }
+   85 const new_dog ={...DOG,...DOG1};
+   86 console.log(new_dog);
+   87 
+Submitted On Friday, 23 February 2024, 10:58 AM

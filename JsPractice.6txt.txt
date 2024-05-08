@@ -1,0 +1,200 @@
+/*class Person
+    2 {
+    3     static s_count =0;
+    4     constructor(name,ssn)
+    5     {
+    6         this.name = name;
+    7         this.ssn = ssn;
+    8         this.count = 0;
+    9     }
+   10     sing()
+   11     {
+   12         this.count+=1;
+   13         //Person.s_count+=1;
+   14         console.log("The count of users is: ",this.count);
+   15         increment();
+   16     }
+   17     static increment()
+   18     {
+   19          Person.s_count+=1;
+   20         console.log("The static count of users is: ",Person.s_count.count);
+   21     }
+   22 }
+   23 let pobj1 = new Person("Gayathri");
+   24 let pobj2 = new Person("Gayathri");
+   25 let pobj3 = new Person("Gayathri");
+   26 let pobj4 = new Person("Gayathri");
+   27 
+   28 pobj1.sing();
+   29 pobj2.sing();
+   30 pobj3.sing();
+   31 pobj4.sing();
+   32 */
+   33 //Article
+   34 
+   35 /*class Article
+   36 {
+   37   
+   38     constructor(title,author,date)
+   39     {
+   40         this.title = title;
+   41         this.author = author;
+   42         this.date =new Date(date);
+   43     }
+   44     static compare(a1,a2)
+   45     {
+   46         return a1.date- a2.date;
+   47     }
+   48 }
+   49 let a1 = [
+   50     new Article("Title 1","Author A","2024-02-20"),
+   51     new Article("Title 2","Author B","2020-02-15"),
+   52     new Article("Title 3","Author C","2021-02-07"),
+   53     new Article("Title 4","Author D","2022-02-26"),
+   54     new Article("Title 5","Author E","2023-02-03")
+   55     ]
+   56     a1.sort(Article.compare);
+   57     a1.forEach(a =>{
+   58     console.log(`${a.title} ${a.author} ${a.date.toString().split('T')[0]}`);
+   59     });
+   60     
+   61     
+   62 //inheritance
+   63 //parent class
+   64 class Vehicle
+   65 {
+   66     constructor(make,model,color)
+   67     {
+   68        this.make = make;
+   69        this.model = model;
+   70        this.color = color;
+   71     }
+   72     accelerate()
+   73     {
+   74         console.log("Accelerate call from Vehicle");
+   75     }
+   76     applybrakes()
+   77     {
+   78         console.log("Applybrakes from vehile called");
+   79     }
+   80     
+   81     
+   82 }
+   83 //child class
+   84 class Car extends Vehicle{
+   85     constructor(isautomatic)
+   86     {
+   87         super();
+   88         this.isautomatic = isautomatic;
+   89     }
+   90     changingGears()
+   91     {
+   92         console.log("Changinggears from car called");
+   93     }
+   94 }
+   95 let cobj = new Car();
+   96 cobj.changingGears();
+   97 cobj.accelerate();
+   98 cobj.applybrakes();
+   99 
+  100 //Person
+  101 class Person
+  102 {
+  103     static s_c=0;
+  104     static m1()
+  105     {
+  106         Person.st_ct+=1;
+  107         console.log("Person static class",Person.s_c);
+  108     }
+  109     constructor(name,age)
+  110     {
+  111         this.name = name;
+  112         this.age = age;
+  113     }
+  114     describe(){
+  115         console.log(this.name);
+  116         console.log(this.age);
+  117     }
+  118 }
+  119 class Student extends Person
+  120 {
+  121     constructor(name,age,studentID)
+  122     {
+  123         super(name,age);
+  124         this.studentID = studentID;
+  125     }
+  126     study()
+  127     {
+  128         console.log(this.name);
+  129     }
+  130     
+  131 }
+  132 class Teacher extends Person
+  133 {
+  134     constructor(name,age,subject)
+  135     {
+  136         super(name,age);
+  137         this.subject = subject;
+  138     }
+  139     teach()
+  140     {
+  141         console.log(this.name);
+  142         console.log(this.subject);
+  143     }
+  144 }
+  145 //let Student = new Student("Gayathri",20,"S12345");
+  146 let per = new Person("Gayathri",20);
+  147 per.describe();
+  148 let stu = new Student("Gayathri",20,"S12345");
+  149 stu.study();
+  150 stu.describe();
+  151 
+  152 let teac = new Teacher("Gayathri",20,"Tamil");
+  153 teac.teach();
+  154 //Person.m1();
+  155 console.log(Person.s_c);
+  156 */
+  157 //exce - 3
+  158 class Game
+  159 {
+  160     constructor(name,noofplayers)
+  161     {
+  162         this.name = name;
+  163         this.noofplayers = noofplayers;
+  164     }
+  165     print()
+  166     {
+  167         console.log(this.name);
+  168         console.log(this.noofplayers);
+  169     }
+  170     
+  171 }
+  172 class VideoGame extends Game
+  173 {
+  174     constructor(name,noofplayers,platforms)
+  175     {
+  176         super(name,noofplayers);
+  177         this.platforms = platforms;
+  178     }
+  179     printvideo()
+  180     {
+  181         //console.log(this.platforms);
+  182         this.platforms.forEach(pl=>console.log(pl));
+  183     }
+  184 }
+  185 
+  186 const v1 = new VideoGame("Kavinesh",4,["Nintendo","Switch","PS4"]);
+  187 const v2 = new VideoGame("Thuhin",2,["xbox","Android","PS"]);
+  188 
+  189 const vido = [v1,v2];
+  190 vido.forEach(vs =>{
+  191     vs.print();
+  192     vs.printvideo();
+  193     console.log();
+  194 })
+  195 /*v1.print();
+  196 v1.printvideo();
+  197 v2.print();
+  198 v2.printvideo();*/
+  199 
+Submitted On Friday, 1 March 2024, 11:25 AM

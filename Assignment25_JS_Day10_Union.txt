@@ -1,0 +1,49 @@
+/* 
+    2 Write a JS program such that ,
+    3 when provided with 2 groups of strings.
+    4 Return the union of these 2 groups.
+    5  
+    6 Union = combination of the items from both groups but without any duplicate items.
+    7  
+    8 Input Format :
+    9 --------------
+   10 Line 1 : N space separated strings, list1
+   11 Line 2 : N space separated strings, list2
+   12  
+   13 Output Format :
+   14 ---------------
+   15 Line 1 : N space separated strings, union of list1 and list2
+   16  
+   17 Sample Input :
+   18 --------------
+   19 apple mango orange
+   20 grapes apple banana
+   21  
+   22 Sample Output :
+   23 ---------------
+   24 apple mango orange grapes banana
+   25  
+   26 */
+   27  
+   28 var readline=require('readline').createInterface({input:process.stdin,output:process.stdin});
+   29 var list1, list2, il = 1;
+   30 readline.on('line',function(line){
+   31     if(il==2){
+   32         list2=line.split(" ");
+   33         solution(list1, list2);
+   34         readline.close();
+   35 	}
+   36 	else
+   37 	{
+   38         list1=line.split(" ");
+   39         il++;
+   40 	}
+   41 });
+   42  
+   43 function solution(list1, list2){
+   44     //Write logic here
+   45     let newset = new Set([...list1,...list2]);
+   46     console.log(newset);
+   47 }
+   48 
+Submitted On Tuesday, 27 February 2024, 10:42 AM

@@ -1,0 +1,44 @@
+/*
+    2 
+    3 Given an array of words, your mission is to filter out the words that are entirely uppercase. 
+    4 If a word contains any lowercase letters, it should be excluded from the result. 
+    5 Once you have filtered the words, you must present them to the result array.
+    6 
+    7 Note:You are not allowed to use any traditional loops such as for or while, or the forEach method.
+    8 
+    9 Input Format :
+   10 --------------
+   11 N space-separated words. 
+   12 
+   13 Output Format :
+   14 ---------------
+   15 A new array containing only the words that are entirely uppercase, suitable for the Uppercase array.
+   16 
+   17 Sample Input 1:
+   18 ---------------
+   19 KINGDOM Valley QUEEN castle
+   20 
+   21 Sample Output 1:
+   22 ---------------
+   23 ['KINGDOM', 'QUEEN']
+   24 
+   25 Explanation:
+   26 ------------
+   27 In this example, "KINGDOM" and "QUEEN" are entirely uppercase and are thus included in the array. 
+   28 "Valley" and "castle" contain lowercase letters and are excluded from the array.
+   29 
+   30 */
+   31 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   32 let list;
+   33 readline.question('',function(line){
+   34         list = line.split(" ")
+   35         Solution(list);
+   36         readline.close();
+   37     });
+   38 function Solution(list)
+   39 {
+   40      //Write your logic here
+   41     let words = list.filter((e)=>e===e.toUpperCase());
+   42     console.log(words);
+   43 
+   44 }

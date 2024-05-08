@@ -1,0 +1,40 @@
+/*
+    2 Write a javascript function that takes an array containing numbers and other data types, 
+    3   and processes each element as follows:
+    4 
+    5     If the element is a number, calculate its square root and round the result to 4 decimal places.
+    6     If the element is not a number, concatenate it with itself.
+    7 
+    8 Finally, Print the resulting array.
+    9 
+   10 Input Format :
+   11 --------------
+   12 Line 1 : An array of elements.
+   13 
+   14 Output Format :
+   15 ---------------
+   16 Line 1 : Resultant Array
+   17 
+   18 Sample Input 1:
+   19 ---------------
+   20 [10,'hello',2,'hi',true]
+   21 [1,2,3]
+   22 
+   23 Sample Output 1:
+   24 ---------------
+   25 [ '3.1623', 'hello hello', '1.4142', 'hi hi', 'true true' ]
+   26 [ '1.0000', '1.4142', '1.7321' ]
+   27 
+   28 */
+   29 function Solution(list){
+   30     //Write your logic here
+   31     let res = list.map((e)=>{
+   32         if(typeof(e) =='number')
+   33             return Math.sqrt(e).toFixed(4);
+   34           else
+   35             return e+" "+e;
+   36     })
+   37     console.log(res);
+   38 }
+   39 Solution([1,5,'hello',9,true]);
+   40 Solution([1,2,3])

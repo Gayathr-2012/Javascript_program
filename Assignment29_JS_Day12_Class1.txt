@@ -1,0 +1,78 @@
+/* John has 3 lines of text.
+    2 Each line has details about a friend of his -
+    3     the name of the friend,
+    4     grade of his friend and
+    5     marks that the friend obtained, in that order, separated by spaces.
+    6  
+    7 He is expected to convert those 3 strings into 3 student objects and print the details in the format mentioned below.
+    8  
+    9 The 3 lines are -
+   10 Joanne 8 25 35 45
+   11 Cindy 7 35 28 40
+   12 Stephanie 9 29 48 50
+   13  
+   14 Expected Output :
+   15 -----------------
+   16 Joanne scored a total of 105 in grade 8
+   17 Cindy scored a total of 103 in grade 7
+   18 Stephanie scored a total of 127 in grade 9
+   19  
+   20 Note: You are expected to create a Student class and create student objects using this class.
+   21 Then store these objects in an array, iterate through this array,
+   22 calculate the total marks in one method called calculate() and print each student detail in the given format in another method called print().
+   23  
+   24 */
+   25 //Here Create Student class with constructor and TWO  methods (calculate(),print())
+   26 
+   27 class Student{
+   28     constructor(name,grade,marks)
+   29     {
+   30         this.name= name;
+   31         this.grade = grade;
+   32         this.marks = marks;
+   33         this.totalmarks = 0;
+   34     }
+   35     calculate()
+   36     {
+   37         this.totalmarks = this.marks.reduce((acc,i)=>acc+i);
+   38     }
+   39     print()
+   40     {
+   41         console.log(`${this.name} scored a total of ${this.totalmarks} in grade ${this.grade} `);
+   42     }
+   43 }
+   44 /*
+   45 The 3 lines are -
+   46 Joanne 8 25 35 45
+   47 Cindy 7 35 28 40
+   48 Stephanie 9 29 48 50
+   49 */
+   50 function createStudentFromText(line)
+   51 {
+   52     const parts = line.split(' ');
+   53     const name = parts[0];
+   54     const grade = parseInt(parts[1],10);
+   55     const marks = parts.slice(2).map(Number);
+   56     return new Student(name,grade,marks);
+   57 }
+   58 
+   59 const lines =[
+   60    "Joanne 8 25 35 45",
+   61 "Cindy 7 35 28 40",
+   62 "Stephanie 9 29 48 50"
+   63     ]
+   64     
+   65 const students = lines.map(createStudentFromText);
+   66 
+   67 students.forEach(s=>{
+   68     s.calculate();
+   69     s.print();
+   70 })
+   71 //Here Create 3 Student class Objects
+   72 
+   73 
+   74 //Here Call calculate() method
+   75 
+   76 
+   77 //Here Call print() method
+  

@@ -1,0 +1,45 @@
+let employee ={
+    2     "name":"Gayathri",
+    3     "age":"32",
+    4     "isProgrammer":true,
+    5     "Skills":["Python","JS","React"],
+    6     "address":{
+    7         doorno:23,
+    8         streetname:"Main street"
+    9     }
+   10 }
+   11 console.log(employee);
+   12 console.log(employee.name);
+   13 console.log(employee.address.doorno);
+   14 console.log(employee.address['doorno']);
+   15 console.log(employee.Skills[1]);
+   16 
+   17 let companies=`{
+   18     "com":[{
+   19         "name":"Salesforce",
+   20         "noofemp":2000,
+   21         "ceo":"Solape",
+   22         "rating":4.5
+   23     },
+   24     {
+   25         "name":"ServiceNow",
+   26         "noofemp":800,
+   27         "ceo":"Kein",
+   28         "rating":3.5
+   29     },
+   30     {
+   31         "name":"Mern",
+   32         "noofemp":200,
+   33         "ceo":"Gayathri",
+   34         "rating":4.0
+   35     }
+   36     ]
+   37 }`;
+   38 console.log(companies);
+   39 //console.log("JSON:",companies.com.name);
+   40 let jsobj = JSON.parse(companies);
+   41 console.log(jsobj);
+   42 let json_str = JSON.stringify(jsobj);
+   43 console.log(json_str);
+   44 console.log(Object.entries(companies));
+Submitted On Saturday, 24 February 2024, 8:53 AM

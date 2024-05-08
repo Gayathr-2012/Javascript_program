@@ -1,0 +1,110 @@
+
+    1 
+    2 const mobj1 = new Map();
+    3 console.log(mobj1);
+    4 
+    5 mobj1.set("info",{name:"Solape",ssn:1222});
+    6 mobj1.set(1,"number");
+    7 mobj1.set("1","String");
+    8 mobj1.set(true,"boolean");
+    9 mobj1.set(true,"boolean").set(true,"boolean").set(true,"boolean");
+   10 console.log(mobj1);
+   11 let data = mobj1.get("info");
+   12 console.log(data);
+   13 console.log(mobj1.size);
+   14 
+   15 let us1 ={name: "Pooja",ssn:123};
+   16 let us2 ={name: "Poojatwo",ssn:223};
+   17 let us3 ={name: "Poojathree",ssn:323};
+   18 
+   19 let user_roles = new Map([[us1,"admin"],[us2,"HR"],[us3,"Developer"]]);
+   20 console.log(user_roles);
+   21 console.log(user_roles.size);
+   22 
+   23 //app -1 destructuring
+   24 for(let role of user_roles)
+   25 {
+   26     console.log(`${role[0].name} ssn number is ${role[0].ssn} role is ${role[1]}`);
+   27 }
+   28 
+   29 
+   30 //app -2 
+   31 for(let[k,v] of user_roles.entries()){
+   32     console.log(`${k.name} ssn number is ${k.ssn} role is ${v}`);
+   33 }
+   34 
+   35 //app-3
+   36 user_roles.forEach((role,user)=>console.log(user.name,role));
+   37 
+   38 //const keys = user_roles.keys();
+   39 const keys =[...user_roles.keys()];
+   40 console.log(keys);
+   41 
+   42 
+   43 const values =[...user_roles.values()];
+   44 console.log(values);
+   45 
+   46 //delete 
+   47 console.log("*************************");
+   48 user_roles.delete("Pooja");
+   49 for(let role of user_roles)
+   50 {
+   51     /*if(role[0].name == "Pooja")
+   52     {
+   53         
+   54     }*/
+   55      console.log(`${role[0].name} ssn number is ${role[0].ssn} role is ${role[1]}`);
+   56     
+   57 }
+   58 console.log("*************************");
+   59 console.log("*************************");
+   60 let cont1 ={"India":"Delhi"}
+   61 let cont2 = {"USA":"DC"}
+   62 let cont3 ={"Canada":"vc"}
+   63                 
+   64 let map_o = new Map();
+   65 map_o.set(cont1,{population:"1.2B",langu:"Hindi"});
+   66 map_o.set(cont2,{population:"1B",langu:"English"});
+   67 map_o.set(cont3,{population:"1.2B",langu:"Hindi"});
+   68 console.log(map_o);
+   69 
+   70 let counexis = false;
+   71 for(let key of map_o.keys())
+   72 {
+   73     if(key === cont1){
+   74         counexis =true;
+   75         break;
+   76     }
+   77 }
+   78 console.log(counexis);
+   79 
+   80 const isdup =(val1,val2)=>
+   81 {
+   82     return val1.population === val2.population && val1.langu === val2.langu;
+   83 }
+   84 
+   85 /*const entries =[...map_o.entries()];
+   86 for(let i =0;i<entries.length;i++)
+   87 {
+   88     for(let j=i+1;j<entries.length;j++)
+   89     {
+   90         if(isdup(entries[i][1],entries[j][1]))
+   91         {
+   92             map_o.delete(entries[j][0]);
+   93         }
+   94     }
+   95 }*/
+   96 const keystodel = [];
+   97 map_o.forEach((v1,k1)=>{
+   98     map_o.forEach((v2,k2)=>{
+   99         if(k1!== k2 && isdup(v1,v2))
+  100         {
+  101             keystodel.push(k2);
+  102         }
+  103     })
+  104 })
+  105 
+  106 keystodel.forEach(k=>{
+  107     map_o.delete(k);
+  108 })
+  109 console.log(map_o);

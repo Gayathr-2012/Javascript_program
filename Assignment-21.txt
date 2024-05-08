@@ -1,0 +1,42 @@
+/*
+    2 Mr Somanath is a math teacher. He is given a problem to his students. The students are given a number N, and the student has to perform following step:  Add each digit of the number and add the result to N.  Repeat this procedure until N becomes a single digit number. Your task is to help the students to perform the above steps and print the resultant single digit number N.
+    3 
+    4 Input Format:   An integer, number N.
+    5 Output Format:  Print an integer result.
+    6 
+    7 Sample Input-1:  95
+    8 Sample Output-1:  5
+    9 
+   10 Explanation: 
+   11 95 => 9 + 5 = 14
+   12 14 => 1 + 4 = 5
+   13 Answer is 5
+   14 
+   15 Sample Input-2:  765
+   16 Sample Output-2:  9
+   17 
+   18 
+   19 */
+   20 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   21 let number;
+   22 readline.question('',function(line){
+   23         number=parseInt(line);
+   24         solution(number);
+   25         readline.close();
+   26     });
+   27  
+   28 function solution(number){
+   29     //Write your logic here
+   30     let sum = number;
+   31     while(sum>9)
+   32     {
+   33         let temp =0;
+   34         let digits = sum.toString();
+   35         for(let d of digits){
+   36             temp +=parseInt(d,10);
+   37         }
+   38         sum = temp;
+   39     }
+   40     console.log(sum);
+   41 }
+   42 

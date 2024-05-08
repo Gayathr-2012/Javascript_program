@@ -1,0 +1,47 @@
+/* Write a javascript program to check if a given number is Palindrom or not.
+    2 
+    3 Input Format:
+    4 -------------
+    5 Line 1: A number
+    6 
+    7 Output Format:
+    8 --------------
+    9 Line 1: A String,
+   10 
+   11 Sample Input 1:
+   12 ---------------
+   13 121
+   14 
+   15 Sample Output 1:
+   16 ----------------
+   17 Yes
+   18 
+   19 Sample Input 2:
+   20 ---------------
+   21 123
+   22 
+   23 Sample Output 2:
+   24 ----------------
+   25 No
+   26 
+   27 */
+   28 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   29 let num;
+   30 readline.question('',function(line){
+   31         num=parseInt(line);
+   32         solution(num);
+   33         readline.close();
+   34     });
+   35  
+   36 function solution(num){
+   37     //Write your logic here
+   38 let num2 = num.toString();
+   39 let reverse = num2.split('').reverse().join('');
+   40 if(num2==reverse)
+   41 {
+   42     console.log("Yes");
+   43 }
+   44 else
+   45     console.log("No");
+   46  }
+   47  

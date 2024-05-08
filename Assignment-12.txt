@@ -1,0 +1,78 @@
+/* Given a numbers in string, print it from left to right 'n' number of times
+    2 
+    3 Note : If the given input is NaN or given value is <=0, print -1
+    4 
+    5 Input Format :
+    6 --------------
+    7 Line 1 : A string
+    8 
+    9 Output Format :
+   10 ---------------
+   11 Print pattern
+   12 
+   13 
+   14 Sample Input 1 :
+   15 ----------------
+   16 459
+   17 
+   18 Sample Output 1:
+   19 ----------------
+   20 4444
+   21 55555
+   22 999999999
+   23 
+   24 Sample Input 2 :
+   25 ----------------
+   26 -10
+   27 
+   28 Sample Output 2:
+   29 ----------------
+   30 -1
+   31 
+   32 Sample Input 3 :
+   33 ----------------
+   34 four
+   35 
+   36 Sample Output 3:
+   37 ----------------
+   38 -1
+   39 
+   40 Sample Input 4 :
+   41 ----------------
+   42 001
+   43 
+   44 Sample Output 4:
+   45 ----------------
+   46 1
+   47 
+   48 
+   49 */
+   50 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   51 let number;
+   52 readline.question('',function(line){
+   53         number = line;
+   54         solution(number);
+   55         readline.close();
+   56     });
+   57  
+   58 function solution(number){
+   59     //Write your logic here
+   60     if(isNaN(number)||number<=0)
+   61     {
+   62         console.log(-1)
+   63     }
+   64 for(let i=0;i<number.length;i++)
+   65 {
+   66     let digit =parseInt(number[i],10);
+   67     if(digit>0)
+   68     {
+   69         console.log(String(digit).repeat(digit))
+   70     }
+   71 }
+   72 }
+   73 //let num =
+   74 //solution("459");
+   75 //solution("-10");
+   76 //solution("four");
+   77 //solution("001");
+   78 

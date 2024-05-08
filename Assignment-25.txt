@@ -1,0 +1,119 @@
+/*
+    2 arr.reduce(accumulator, currentvalue,index,)
+    3 */
+    4 // nums = [10,45,67,89,80];
+    5 // let sumv=0;
+    6 // for(let i=0;i<nums.length;i++)
+    7 // {
+    8 //     sumv+=nums[i];
+    9 // }
+   10 // console.log(sumv);
+   11 
+   12 // //appr -2
+   13 // let sumv1 =0;
+   14 // for(let i of nums)
+   15 // {
+   16 //     sumv1+=i;
+   17 // }
+   18 // console.log(sumv1);
+   19 
+   20 // //appr-3
+   21 // let sum_v3 = nums.reduce(function(acc,item)
+   22 // {
+   23 //     return acc+=item;
+   24 // });
+   25 
+   26 // console.log("Reduce: ",sum_v3);
+   27 
+   28 // //appr -4
+   29 // let sum_v4 = nums.reduce((acc,item)=>
+   30 // {
+   31 //     return acc+=item;
+   32 // });
+   33 
+   34 // console.log("Reduce arrow: ",sum_v4);
+   35 
+   36 
+   37 
+   38 // //Excersise -1
+   39 // let score_card =[56,67,67,78];
+   40 
+   41 // let res = score_card.reduce(function(tot,item)
+   42 // {
+   43 //     return tot+=item;
+   44 // });
+   45 // console.log("total: ",res);
+   46 
+   47 // console.log("Average: ",(res/(score_card.length)).toFixed(2));
+   48 
+   49 // // Excersise 2
+   50 // num_arr =[1200,2344,5666,1234];
+   51 // let res1 = num_arr.reduce((tot,item)=>
+   52 // {
+   53 //     return tot-=item;  
+   54 // });
+   55 // console.log("minus ",res1);
+   56 
+   57 //rest parameter
+   58 function add(...res_param)
+   59 {
+   60     let sum=0;
+   61     for(let i of res_param)
+   62     {
+   63         sum+=i;
+   64     }
+   65     return sum;
+   66 }
+   67 console.log(add(1,2));
+   68 console.log(add(1,2,3,4));
+   69 
+   70 //arr destructuring
+   71 let nu_ar =[23,34,45,56,76];
+   72 let profile =["pooja","Godse","Tranier",23];
+   73 
+   74 /*let n_ame = profile[0];
+   75 let lname = profile[1];
+   76 let age = profile[3];*/
+   77 
+   78 //array destructuring
+   79 
+   80 let[n_ame,lname,desg,age]=profile;
+   81 let[n,,a]=profile;
+   82 console.log(n_ame);
+   83 console.log(age);
+   84 
+   85 //swapping
+   86 let d=10;
+   87 let b= 20;
+   88 [d,b]=[b,d];
+   89 
+   90 function calculator(a,b)
+   91 {
+   92     let sume =a+b;
+   93     let diff = a+b;
+   94     let mul = a*b;
+   95     let div = a/b;
+   96     return [sume,diff,mul,div];
+   97 }
+   98 let[addi,sub,mul,div]= calculator(34,12);
+   99 console.log(addi);
+  100 
+  101 //function definition - destructing array
+  102 
+  103 const details =["psdfja","Good"];
+  104 function display([fname,lname])
+  105 {
+  106     console.log(`My ${fname} and ${lname}`);
+  107 }
+  108 display(details);
+  109 
+  110 let num_3 = [1,2,3,4,5,6,7];
+  111 console.log("unpacked",num_3);
+  112 console.log("unpacked",...num_3);
+  113 let values =["MY","name","is","kevin"];
+  114 console.log(...values);
+  115 //console.log(...values[0]);
+  116 
+  117 let num_4 =[1,2,3,4,5];
+  118 let val =[...num_3,...num_4,99,67,89,90];
+  119 console.log(val);

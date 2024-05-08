@@ -1,0 +1,99 @@
+ /* Write a JS program to fetch the Employee Information from a JSON file and
+    2 for the given Employee Id, find his/her first name and last name in Camel Case
+    3 and print the salary.
+    4  
+    5 Input Format :
+    6 --------------
+    7 Line 1: A number, employee id
+    8  
+    9 Output Format :
+   10 ---------------
+   11 Line 1: A String, employee name in Camel Case
+   12 Line 2: A String, employee salary
+   13  
+   14 Note : If employee found with given id print "Invalid Employee ID! Kindly check."
+   15  
+   16 Sample Input 1:
+   17 ---------------
+   18 Enter the Employee Id: 123
+   19  
+   20 Sample Output 1:
+   21 ---------------
+   22 Name: Alex Valley                                                                                                      
+   23 Salary: $1234
+   24  
+   25 Sample Input 2:
+   26 ---------------
+   27 Enter the Employee Id: 130
+   28  
+   29 Sample Output 2:
+   30 ---------------                                                                                         
+   31 Invalid Employee ID! Kindly check.
+   32  
+   33 */
+   34  
+   35 const employeeInfo = [
+   36   {
+   37     "eid": "123",
+   38     "fname": "alex",
+   39     "lname": "valley",
+   40     "salary": "$1234",
+   41     "Role": "SDE",
+   42     "doj": "2021-04-22",
+   43     "dob": "1986-06-10"
+   44   },
+   45   {
+   46     "eid": "124",
+   47     "fname": "shrey",
+   48     "lname": "agathwar",
+   49     "salary": "$2345",
+   50     "Role": "HR",
+   51     "doj": "2019-05-15",
+   52     "dob": "1975-09-13"
+   53   },
+   54   {
+   55     "eid": "125",
+   56     "fname": "viral",
+   57     "lname": "shant",
+   58     "salary": "$3456",
+   59     "Role": "JDE",
+   60     "doj": "2018-03-05",
+   61     "dob": "1984-05-23"
+   62   },
+   63   {
+   64     "eid": "126",
+   65     "fname": "candy",
+   66     "lname": "fest",
+   67     "salary": "$4567",
+   68     "Role": "Manager",
+   69     "doj": "2020-09-23",
+   70     "dob": "1985-08-31"
+   71   }
+   72 ]
+   73    
+   74 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   75 let eid;
+   76 readline.question('Enter the Employee Id: ',function(line){
+   77         eid=line;
+   78         solution(eid,employeeInfo);
+   79         readline.close();
+   80     });
+   81  
+   82 function solution(id,employeeInfo) {
+   83     //Write your code here
+   84    const employee = employeeInfo.find(e=>e.eid===id);
+   85    if(employee)
+   86    {
+   87         //const f1 =
+   88         const name = employee.fname[0].toUpperCase()+employee.fname.slice(1)+" "+employee.lname[0].toUpperCase()+employee.lname.slice(1);
+   89        console.log(`Name: ${name}`);
+   90        console.log(`Salary: ${employee.salary}`);
+   91    }
+   92    else
+   93    {
+   94        console.log("Invalid Employee ID! Kindly check.");
+   95    }
+   96    
+   97 }
+   98 
+Submitted On Saturday, 24 February 2024, 10:20 AM

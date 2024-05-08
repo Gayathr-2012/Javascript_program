@@ -1,0 +1,96 @@
+//arrow function
+    3 /*
+    4 let sum= (a,b)=>{
+    5     return a+b;
+    6 }
+    7 
+    8 (function (){
+    9     let name="gayu";
+   10     console.log("This is self invoking function",name);
+   11 })();
+   12 
+   13 let msg1 = (age)=>console.log("Arrow Function",age);
+   14 msg1();
+   15 
+   16 //Synchronous
+   17 function runningFn()
+   18 {
+   19     let start = Date.now();
+   20     while(Date.now()-start<5000)
+   21     {
+   22         //do nothing
+   23     }
+   24     return "Hello";
+   25 }
+   26 console.log("Starting.....");
+   27 let result = runningFn();
+   28 
+   29 //asynchronous
+   30 function asyncOperation()
+   31 {
+   32     console.log("Start the operation");
+   33     setTimeout(function()
+   34     {callback();
+   35         
+   36     },1000);
+   37     console.log("End the operation");
+   38 }
+   39 function callback()
+   40 {
+   41     console.log("Callback called");
+   42 }
+   43 asyncOperation(callback);
+   44 */
+   45 let num1 =3;
+   46 let num2 = 3.2;
+   47 console.log(num1);
+   48 const A1=5e5;
+   49 const A2=3e-2;
+   50 console.log(A1,A2);
+   51 
+   52 
+   53 let num3=0xff;
+   54 let num4=0x00;
+   55 console.log(num3, num4);
+   56 let num5=Number.parseInt("34");
+   57 let num6=Number.parseInt("Hello");
+   58 console.log(num5);
+   59 
+   60 console.log(num6);
+   61 
+   62 
+   63 let num7=34567;
+   64 let num8=num7.toExponential(3);
+   65 console.log(num8);
+   66 
+   67 let x = 0.1;
+   68 let y = 0.2;
+   69 let z = x+y;
+   70 console.log(z);
+   71 console.log(z.toFixed(3));
+   72 let a = 234.567;
+   73 let b = 456.222;
+   74 console.log(a.toPrecision(3));
+   75 console.log(b.toPrecision(5));
+   76 
+   77 //Date Object
+   78 const date_obj = new Date();
+   79 const date_obj2= new Date("25 January 1999");
+   80 const date_obj4= new Date("1999","3");
+   81 const date_obj3= new Date("1999","3","21");
+   82 console.log(date_obj3);
+   83 
+   84 //set and get methods
+   85 let val1 = date_obj.setFullYear(2022);
+   86 let val2 = date_obj.getFullYear();
+   87 console.log(val1);
+   88 console.log(val2);
+   89 const date_obj1 = new Date();
+   90 date_obj1.setFullYear(2022);
+   91 date_obj1.setMonth(3);
+   92 date_obj1.getMonth();
+   93 date_obj1.setDate(25);
+   94 date_obj1.getDate();
+   95 //date_obj1.setDay(2);
+   96 //date_obj1.getDay();
+   97 console.log(date_obj1);

@@ -1,0 +1,73 @@
+/* Write a javascript program to check if a given number is a Nice number or not.
+    2 
+    3 A number is nice if sum of even digits is more than or equal to the sum of odd digits of a given number. 
+    4 
+    5 Example 1: Number: 2468
+    6 
+    7 Sum of even digits: 2 + 4 + 6 + 8 = 20
+    8 Sum of odd digits: None (as there are no odd digits)
+    9 Since the sum of even digits (20) is greater than the sum of odd digits (0), the number is Nice.
+   10 
+   11 Example 2: Number: 13579
+   12 
+   13 Sum of even digits: None (as there are no even digits)
+   14 Sum of odd digits: 1 + 3 + 5 + 7 + 9 = 25
+   15 Since the sum of even digits (0) is not greater than or equal to the sum of odd digits (25), the number is not Nice.
+   16 
+   17 Input Format:
+   18 -------------
+   19 Line 1: A number
+   20 
+   21 Output Format:
+   22 --------------
+   23 Line 1: A String,
+   24 
+   25 Sample Input 1:
+   26 ---------------
+   27 2468
+   28 
+   29 Sample Output 1:
+   30 ----------------
+   31 Nice
+   32 
+   33 Sample Input 2:
+   34 ---------------
+   35 13579
+   36 
+   37 Sample Output 2:
+   38 ----------------
+   39 Not a Nice
+   40 
+   41 */
+   42 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   43 let num;
+   44 readline.question('',function(line){
+   45         num=parseInt(line);
+   46         solution(num);
+   47         readline.close();
+   48     });
+   49  
+   50 function solution(num){
+   51     //Write your logic here
+   52 let sumeven = 0;
+   53 let sumodd = 0;
+   54 let digits = num.toString();
+   55 for(let i of digits)
+   56 {
+   57     let currdig = parseInt(i);
+   58     if(currdig%2===0)
+   59     {
+   60         sumeven+=currdig;
+   61     }
+   62     else
+   63     {
+   64         sumodd+=currdig;
+   65     }
+   66 }
+   67 if(sumeven>=sumodd)
+   68     console.log("Nice");
+   69 else
+   70     console.log("Not a Nice");
+   71 
+   72 }
+   73 

@@ -1,0 +1,153 @@
+/*
+    2 You are required to implement a Bank Account Management System using 
+    3 JavaScript classes with inheritance concept. 
+    4 
+    5 The system should allow users to create bank accounts, deposit money into accounts, 
+    6 withdraw money from accounts, and transfer money between accounts.
+    7 
+    8 Your program should have the following Tasks:
+    9 Task1:
+   10 ======
+   11 Create a superclass BankAccount with the following properties:
+   12  1.accountNumber (number): The account number of the bank account.
+   13  2.accountHolderName (string): The name of the account holder.
+   14  3.balance (number): The current balance in the account.
+   15 Include the following TWO methods:
+   16  1.deposit(amount): Adds the specified amount to the account's balance.
+   17  2.withdraw(amount): Subtracts the specified amount from the account's balance, 
+   18    if sufficient funds are available.
+   19 Note:While implementing methods for output format please check the  Expected output.
+   20 
+   21 Task2:
+   22 ======
+   23 Create a subclass SavingsAccount that extends BankAccount with  transfer(amount, targetAccount) method 
+   24 which Transfers the specified amount from the current account to the target account, 
+   25 if sufficient funds are available in the current account.
+   26 
+   27 Note:While implementing transfer(amount, targetAccount)method,
+   28      for output format please check the  Expected output.
+   29 
+   30 Task3:
+   31 ======
+   32 Create TWO instances of SavingsAccount with the following data:
+   33 First Instance data : accountNumber:111,accountHolderName:Alice,Initialbalence:1000
+   34 Second Instance data : accountNumber:222,accountHolderName:Bob,Initialbalence:500
+   35 
+   36 Task4:
+   37 ======
+   38 Display the TWO Account Details with Initial Data, 
+   39 for output format please check the  Expected output
+   40 
+   41 Task5:
+   42 ======
+   43 Perform the following THREE operations on account1
+   44  1.deposit 500 to account1,
+   45  2.withdraw 200 from account1,
+   46  3.transfer 1800 from account1 to account2,
+   47 for output format please check the  Expected output
+   48 
+   49 Task6:
+   50 ======
+   51 Perform the following THREE operations on account2
+   52  1.deposit 500 to account2,
+   53  2.withdraw 200 from account2,
+   54  3.transfer 800 from account2 to account1,
+   55 for output format please check the  Expected output
+   56 
+   57 Task7:
+   58 ======
+   59 Display the TWO Account Details after transactions,
+   60 for output format please check the  Expected output
+   61 
+   62 Expected Output:
+   63 -----------------------
+   64 AccountNumber:111, Name:Alice, Initial Balance:1000
+   65 AccountNumber:222, Name:Bob,  Initial Balance:500
+   66 Account:111 Transactions are:
+   67 Deposited 500. New Balance is 1500.
+   68 Withdrawn 200. New Balance is 1300.
+   69 Insufficient Balance.
+   70 Account:222 Transactions are:
+   71 Deposited 500. New Balance is 1000.
+   72 Withdrawn 200. New Balance is 800.
+   73 Transferred 800 to account 111.
+   74 New Balance is 0.
+   75 AccountNumber:111, Name:Alice, Current Balance:2100
+   76 AccountNumber:222, Name:Bob,  Current Balance:0
+   77 */
+   78 
+   79 //Here write your logic for Task1:
+   80 class BankAccount
+   81 {
+   82     constructor(accountNumber,accountHolderName,balance)
+   83     {
+   84         this.accountNumber = accountNumber;
+   85         this.accountHolderName = accountHolderName;
+   86         this.balance = balance;
+   87     }
+   88     deposit(amount)
+   89     {
+   90         this.balance+= amount;
+   91         console.log(`Deposited ${amount}. New Balance is ${this.balance}.`)
+   92     }
+   93     withdraw(amount)
+   94     {
+   95         if(this.balance>=amount)
+   96             {
+   97             this.balance-= amount;
+   98              console.log(`Withdrawn ${amount}. New Balance is ${this.balance}.`);
+   99             }
+  100         else
+  101             console.log("Insufficient Balance.");
+  102             
+  103     }
+  104     
+  105 }
+  106 
+  107 class SavingsAccount extends BankAccount
+  108 {
+  109   
+  110   transfer(amount, targetAccount)
+  111   {
+  112       if(this.balance>=amount)
+  113       {
+  114         this.balance -= amount;
+  115         targetAccount.balance += amount;
+  116         console.log(`Transferred ${amount} to account ${targetAccount.accountNumber}.`);
+  117         console.log(`New Balance is ${this.balance}.`);
+  118       }
+  119       else
+  120         console.log("Insufficient Balance.");
+  121   }
+  122 }
+  123 
+  124 const account1 = new SavingsAccount(111,"Alice",1000);
+  125 const account2 = new SavingsAccount(222,"Bob",500);
+  126 
+  127 console.log(`AccountNumber:${account1.accountNumber}, Name:${account1.accountHolderName}, Initial Balance:${account1.balance}`);
+  128 console.log(`AccountNumber:${account2.accountNumber}, Name:${account2.accountHolderName}, Initial Balance:${account2.balance}`);
+  129 
+  130 console.log(`Account::${account1.accountNumber} Transactions are:`);
+  131 account1.deposit(500);
+  132 account1.withdraw(200);
+  133 account1.transfer(1800,account2);
+  134 
+  135 console.log(`Account::${account2.accountNumber} Transactions are:`);
+  136 account2.deposit(500);
+  137 account2.withdraw(200);
+  138 account2.transfer(800,account1);
+  139 
+  140 console.log(`AccountNumber:${account1.accountNumber}, Name:${account1.accountHolderName}, Current Balance:${account1.balance}`);
+  141 console.log(`AccountNumber:${account2.accountNumber}, Name:${account2.accountHolderName}, Current Balance:${account2.balance}`);
+  142 //Here write your logic for Task2:
+  143 
+  144 //Here write your logic for Task3:
+  145 
+  146 //Here write your logic for Task4:
+  147 
+  148 //Here write your logic for Task5:
+  149 
+  150 //Here write your logic for Task6:
+  151 
+  152 //Here write your logic for Task7:
+  153 

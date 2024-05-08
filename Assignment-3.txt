@@ -1,0 +1,95 @@
+/* Bristol-Squib, an IT firm, has employed Raj, Samir and John as software engineers.
+    2 They are paid hourly. They work for 8,9 and 10 hours, on any day, in that order. 
+    3  
+    4 Take the hourly rate as input for these 3 employees and calculate the difference between highest and the lowest pay.  
+    5 
+    6 Input Format :
+    7 --------------
+    8 Line-1 : A number, Raj hourly rate
+    9 Line-2 : A number, Samir hourly rate 
+   10 Line-3 : A number, John hourly rate 
+   11  
+   12 Output Format :
+   13 ---------------
+   14 Line-1 : A number, difference pay
+   15    
+   16 Sample Input 1: 
+   17 --------------
+   18 65 85 55
+   19 
+   20 Sample Output 1:
+   21 ---------------
+   22 245
+   23 
+   24 Explanation :
+   25 -------------
+   26 Raj pay = 65 * 8 = 520
+   27 Samir pay = 85 * 9 = 765
+   28 John pay = 55 * 10 = 550
+   29 
+   30 Highest pay is for Samir i.e. 765
+   31 Lowest pay is for Raj i.e. 520 
+   32 
+   33 Difference pay is 765-520 = 245
+   34 
+   35 
+   36 Sample Input 2: 
+   37 --------------
+   38 33 72 74 
+   39 
+   40 Sample Output 2:
+   41 ---------------
+   42 476
+   43 
+   44 Sample Input 3: 
+   45 --------------
+   46 1 5 9 
+   47 
+   48 Sample Output 3:
+   49 ---------------
+   50 82
+   51 
+   52 */
+   53 let readline=require('readline').createInterface({input:process.stdin,output:process.stdin});
+   54 let n1,n2,n3,il=1;
+   55 readline.on('line',function(line){
+   56     if(il==3){
+   57         n3=parseInt(line);
+   58         solution(n1,n2,n3);
+   59         readline.close();
+   60     }
+   61     else if(il==2)
+   62     {
+   63         n2=parseInt(line);
+   64         il++;
+   65     }
+   66     else
+   67     {
+   68         n1=parseInt(line);
+   69         il++;
+   70     }
+   71 });
+   72 
+   73 
+   74 function solution(emp1,emp2,emp3)
+   75 {
+   76     //Add your logic here
+   77     let e1 = emp1*8;
+   78     let e2 = emp2*9;
+   79     let e3 = emp3*10;
+   80    // let arr =[e1,e2,e3];
+   81     let max =Math.max(e1,e2,e3);
+   82     let min =Math.min(e1,e2,e3);
+   83    // console.log(max,min)
+   84    /* for(let i=0;i<arr.length;i++)
+   85     {
+   86         if(arr[i]>max)
+   87             max = arr[i];
+   88         else if(arr[i]<min)
+   89             min =arr[i];
+   90     }*/
+   91     
+   92     diffpay = max-min;
+   93     console.log(diffpay);
+   94 }
+   95 

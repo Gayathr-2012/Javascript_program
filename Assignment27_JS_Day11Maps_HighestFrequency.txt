@@ -1,0 +1,73 @@
+/* 
+    2 Given an array, find the most frequent element in it. 
+    3 If there are multiple elements that appear a maximum number of times, 
+    4 print first of them. 
+    5 
+    6 NOTE : Use Map.
+    7 
+    8 Input Format :
+    9 --------------
+   10 Line-1 : N space separated numbers, list[]
+   11  
+   12 Output Format :
+   13 ---------------
+   14 Line-1 : A number, most frequent element
+   15 
+   16 Sample Input 1:
+   17 ---------------
+   18 1 3 2 1 4 1
+   19 
+   20 Sample Output 1:
+   21 ----------------
+   22 1
+   23 
+   24 Explanation : 1 appears three times which is maximum frequency.
+   25 
+   26 Sample Input 2:
+   27 ---------------
+   28 10 20 10 20 30 20 20
+   29 
+   30 Sample Output 2:
+   31 ----------------
+   32 20
+   33 
+   34 */
+   35 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   36 let list;
+   37 readline.question('',function(line){
+   38         list = line.split(" ").map(Number);
+   39         solution(list);
+   40         readline.close();
+   41     });
+   42  
+   43 function solution(list){
+   44 
+   45   
+   46   let freqmap = new Map();
+   47   for(let num of list)
+   48   {
+   49       freqmap.set(num,(freqmap.get(num)||0)+1);
+   50   }
+   51   console.log(freqmap);
+   52   let mostfreqele;
+   53   let maxfre =-1;
+   54   freqmap.forEach((freq,ele)=>
+   55   {
+   56       if(freq>maxfre||(freq===maxfre && ele<mostfreqele)){
+   57           mostfreqele= ele;
+   58           maxfre = freq;
+   59       }
+   60   })
+   61   
+   62   console.log(mostfreqele);
+   63    
+   64 }
+   65     //Write your logic here
+   66   /*let countarr = {};
+   67   let maxcount = 0;
+   68   list.forEach(num=>{
+   69       countarr[num]=(countarr[num]||0)+1;
+   70       maxcount = Math.max(maxcount,countarr[num]);
+   71   })*/
+   72 
+Submitted On Wednesday, 28 February 2024, 10:26 AM

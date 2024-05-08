@@ -1,0 +1,67 @@
+/*
+    2 You are given an array of numbers. Write a program that checks if the array contains at least one even number. 
+    3 
+    4 If it does, add the string "EVEN" to the end of the array and then remove the first element from the array. 
+    5 
+    6 If the array does not contain any even number,
+    7 add the string "NO_EVEN" at start of the array and then remove the last element from the array
+    8 
+    9 Constraints:
+   10 ------------
+   11 1. The array may contain both positive and negative numbers.
+   12 2. You should not use any loops (e.g., for loop, while loop,...) in your solution.
+   13 
+   14 Input Format :
+   15 --------------
+   16 Line 1 : N space-separated numbers.
+   17 
+   18 Output Format :
+   19 ---------------
+   20 Line 1 : N comma-separated array items.
+   21 
+   22 
+   23 Sample Input 1:
+   24 ---------------
+   25 9 3 7 6 8 1 10
+   26 
+   27 Sample Output 1:
+   28 ---------------
+   29 [3,7,6,8,1,10,'EVEN']
+   30 
+   31 Explanation 1:
+   32 -------------
+   33 The array contains even number(s),so remove first element(9) then add a string "EVEN" at last
+   34 
+   35 Sample Input 2:
+   36 ---------------
+   37 9 3 7 25 81 1 101
+   38 
+   39 Sample Output 2:
+   40 ---------------
+   41 ['NO_EVEN',9,3,7,25,81,1]
+   42 
+   43 */
+   44 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   45 let list;
+   46 readline.question('',function(line){
+   47         list = line.split(" ").map(Number);
+   48         solution(list);
+   49         readline.close();
+   50     });
+   51  
+   52 function solution(list){
+   53     //Write your logic here
+   54     let evennum = list.some(num=> num%2 == 0);
+   55     if(evennum)
+   56     {
+   57         list.push("EVEN");
+   58         list.shift();
+   59     }
+   60     else
+   61     {
+   62         list.unshift("NO_EVEN");
+   63         list.pop();
+   64     }
+   65     console.log(list);
+   66 }
+   67 

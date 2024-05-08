@@ -1,0 +1,101 @@
+ /* 
+    2 Create a class called 'Employee' with properties for name and salary. 
+    3 Include a method to calculate annual salary. 
+    4 
+    5 Create a subclass called 'Manager' and 'Programmer' that inherits from the 'Employee' class 
+    6 and adds an additional property for department. 
+    7 
+    8 Override the annual salary calculation method to include bonuses for managers.
+    9 
+   10 
+   11 NOTE: 10% bonus for managers
+   12 
+   13 Expected Output :
+   14 -----------------
+   15 John Doe (Department: Sales)
+   16 Annual Salary: $792000.00
+   17 Jane Smith (Department: Marketing)
+   18 Annual Salary: $990000.00
+   19 Alice Johnson (Programming Language: JavaScript)
+   20 Annual Salary: $660000.00
+   21 Bob Williams (Programming Language: Python)
+   22 Annual Salary: $780000.00
+   23 
+   24 */
+   25 //Here Write your logic
+   26 class Employee
+   27 {
+   28     constructor(name,salary)
+   29     {
+   30         this.name = name;
+   31         this.salary = salary;
+   32     }
+   33     calculateAnnualSalary()
+   34     {
+   35         return this.salary *12;
+   36     }
+   37 }
+   38 class Manager extends Employee
+   39 {
+   40     constructor(name,salary,department)
+   41     {
+   42         super(name,salary);
+   43         this.department = department;
+   44     }
+   45      calculateAnnualSalary()
+   46     {
+   47        return super.calculateAnnualSalary() *1.10 ;
+   48         
+   49     }
+   50 }
+   51 
+   52 class Programmer extends Employee
+   53 {
+   54     constructor(name,salary,department)
+   55     {
+   56         super(name,salary);
+   57         this.department = department;
+   58     }
+   59     calculateAnnualSalary()
+   60     {
+   61        //let bonus = 0.01 * this.salary;
+   62        // let res = bonus + this.salary
+   63         return this.salary *12;
+   64        // return this.salary;
+   65     }
+   66 }
+   67 
+   68 
+   69 
+   70 
+   71 
+   72 
+   73 
+   74 // Creating instances of the Manager class
+   75 const manager1 = new Manager('John Doe', 60000, 'Sales');
+   76 const manager2 = new Manager('Jane Smith', 75000, 'Marketing');
+   77 
+   78 // Calculate annual salary for managers
+   79 const annualSalary1 = manager1.calculateAnnualSalary();
+   80 const annualSalary2 = manager2.calculateAnnualSalary();
+   81 
+   82 console.log(`${manager1.name} (Department: ${manager1.department})`);
+   83 console.log(`Annual Salary: $${annualSalary1.toFixed(2)}`);
+   84 
+   85 console.log(`${manager2.name} (Department: ${manager2.department})`);
+   86 console.log(`Annual Salary: $${annualSalary2.toFixed(2)}`);
+   87 
+   88 
+   89 // Creating instances of the Programmer class
+   90 const programmer1 = new Programmer('Alice Johnson', 55000, 'JavaScript');
+   91 const programmer2 = new Programmer('Bob Williams', 65000, 'Python');
+   92 
+   93 
+   94 console.log(`${programmer1.name} (Programming Language: ${programmer1.department})`);
+   95 //console.log(`${programmer1.name} (Programming Language: ${programmer1.programmingLanguage})`);
+   96 console.log(`Annual Salary: $${programmer1.calculateAnnualSalary().toFixed(2)}`);
+   97 
+   98 console.log(`${programmer2.name} (Programming Language: ${programmer2.department})`);
+   99 //console.log(`${programmer2.name} (Programming Language: ${programmer2.programmingLanguage})`);
+  100 console.log(`Annual Salary: $${programmer2.calculateAnnualSalary().toFixed(2)}`);
+  

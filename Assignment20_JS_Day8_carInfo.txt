@@ -1,0 +1,29 @@
+/*
+    2 Write a JavaScript program to create an object representing a car. 
+    3 The car object should have properties for brand, model, and year. 
+    4 Additionally, add a method called getInfo() to the object that returns a string containing the car's brand, model, and year.
+    5 
+    6 Consider the car details with below data:
+    7 
+    8 brand: Toyota
+    9 model: Camry
+   10 year: 2020
+   11 
+   12 Expected Output:
+   13 ----------------
+   14 2020 Toyota Camry
+   15 
+   16 */
+   17 
+   18 //Create an object called car representing a car information Here.
+   19 const CAR ={
+   20     brand:"Toyota",
+   21     model:"Camry",
+   22     year:2020,
+   23     getInfo:function()
+   24     {
+   25         console.log(`${CAR.year} ${CAR.brand} ${CAR.model} `)
+   26     }
+   27 }
+   28 CAR.getInfo();
+   29 //console.log(car.getInfo());

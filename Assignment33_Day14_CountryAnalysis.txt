@@ -1,0 +1,97 @@
+/*
+    2 You are required to create a program in JavaScript Using Classes that analyzes data about different countries. 
+    3 
+    4 The program should have the following Tasks:
+    5 
+    6 Task1:
+    7 ======
+    8 Create a Country class with the following properties:
+    9 =>name (string): The name of the country.
+   10 =>population (number): The population of the country.
+   11 =>area (number): The area of the country.
+   12 =>Include a method named getPopulationDensity() in the Country class 
+   13    that calculates and returns the population density of the country (population divided by area).
+   14 
+   15 Task2:
+   16 ======
+   17 Create an empty array named countries outside of the class
+   18 
+   19 Task3:
+   20 ======
+   21 Implement or Create a function named addCountry() that takes three parameters 
+   22 (name, population, area) and adds a new Country object to the countries array.
+   23 
+   24 Task4:
+   25 ======
+   26 Use the addCountry() function to add data for five countries to the countries array.
+   27 Use the following data:
+   28 1. CountryName:'USA', CountryPopulation:331000000, CountryArea:9833517;
+   29 2. CountryName:'Canada',CountryPopulation: 38068000, CountryArea:9984670;
+   30 3. CountryName:'China',CountryPopulation: 1444216107, CountryArea:9596961;
+   31 4. CountryName:'India',CountryPopulation: 1393409038, CountryArea:3287263;
+   32 5. CountryName:'Russia',CountryPopulation: 146745098, CountryArea:17098242;
+   33 
+   34 Task5:
+   35 ======
+   36 Find and display the following information:
+   37 Line 1 : The name of the country with the largest area.
+   38 Line 2 : The name of the country with the largest population.
+   39 Line 3 : The name of the country with the highest population density.
+   40 
+   41 
+   42 Expected Output:
+   43 -------------------
+   44 Country with the largest area: Russia
+   45 Country with the largest population: China
+   46 Country with the highest population density: India
+   47 
+   48 
+   49 */
+   50 
+   51 // Write Your Logic for Task1 Here
+   52 
+   53 // Write Your Logic for Task2 Here
+   54 
+   55 // Write Your Logic for Task3 Here
+   56 
+   57 // Write Your Logic for Task4 Here
+   58 
+   59 // Write Your Logic for Task5 Here
+   60 
+   61 
+   62 class  Country
+   63 {
+   64     constructor(name,population,area)
+   65     {
+   66         this.name = name;
+   67         this.population = population;
+   68         this.area = area;
+   69     }
+   70     getPopulationDensity()
+   71     {
+   72         return this.population/this.area;
+   73     }
+   74     
+   75 }
+   76 const countries = [];
+   77 
+   78 function addCountry(name, population, area)
+   79 {
+   80     const newcontry = new Country(name,population,area);
+   81     countries.push(newcontry);
+   82 }
+   83 
+   84 addCountry('USA',331000000,9833517);
+   85 addCountry('Canada',38068000,9984670);
+   86 addCountry('China',1444216107,9596961);
+   87 addCountry('India',1393409038,3287263);
+   88 addCountry('Russia',146745098,17098242);
+   89 
+   90 const largeare = countries.reduce((prev,cur)=>prev.area >cur.area ? prev :cur);
+   91 console.log(`Country with the largest area: ${largeare.name}`);
+   92 
+   93 const largepopu = countries.reduce((prev,cur)=>prev.population >cur.population ?prev :cur);
+   94 console.log(`Country with the largest population: ${largepopu.name}`);
+   95 
+   96 const largepopuden = countries.reduce((prev,cur)=>prev.getPopulationDensity() >cur.getPopulationDensity() ?prev :cur);
+   97 console.log(`Country with the highest population density: ${largepopuden.name}`);

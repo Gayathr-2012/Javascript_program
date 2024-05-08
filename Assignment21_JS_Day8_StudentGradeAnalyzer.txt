@@ -1,0 +1,55 @@
+/*
+    2 1. Create a JavaScript object called Student with properties name, age, and subjects. 
+    3 The subjects property should be an array of objects, where each object represents a subject with properties for subject name and grade.
+    4 
+    5 2. Create another javascript object called displayStudent that contains a method called printInfo for printing the above object's(Student) name and Age.
+    6 
+    7 
+    8 3. Additionally, add a method called getAGrade() to the object displayStudent that returns an array having only A grade subject names 
+    9 
+   10 
+   11 Consider the Student details with below data:
+   12 
+   13 Name: Alice
+   14 Age: 18
+   15 Subjects: 'Math' having grade 'A' ,'Physics' having grade 'B' and 'Chemistry' having grade 'A' 
+   16 
+   17 Expected Output:
+   18 ----------------
+   19 Name: Alice
+   20 Age: 18
+   21 "A" Grade Subjects:  [ 'Math', 'Chemistry' ]
+   22 
+   23 */
+   24 
+   25 // Create "Student" object Here
+   26 const STUDENT ={
+   27     name:"Alice",
+   28     age:18,
+   29     subjects:[{name:"Math",grade:"A"},{name:"Physics",grade:"B"},{name:"Chemistry",grade:"A"}]
+   30 };
+   31 
+   32 
+   33 
+   34 
+   35 // Here Create a "displayStudent" object  with TWO methods
+   36 const displayStudent={
+   37    printInfo(){
+   38        console.log(`Name: ${STUDENT.name}`);
+   39        console.log(`Age: ${STUDENT.age}`);
+   40    },
+   41    getAGrade(){
+   42        return STUDENT.subjects.filter(s =>s.grade ==="A").map(s=>s.name);
+   43    }
+   44    
+   45 };
+   46 
+   47 
+   48 // Print student info Here by calling printInfo() method
+   49 displayStudent.printInfo(); 
+   50 //displayStudent.printInfo(Student); 
+   51 
+   52 // Print average marks
+   53 //console.log('"A" Grade Subjects: ',displayStudent.getAGrade(Student)); 
+   54 console.log('"A" Grade Subjects: ',displayStudent.getAGrade()); 
+   55 

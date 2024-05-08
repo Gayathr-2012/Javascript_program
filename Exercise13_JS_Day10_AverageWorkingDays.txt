@@ -1,0 +1,164 @@
+{
+    2   "edata": [
+    3     {
+    4       "eid": "1",
+    5       "Email": "abc1@gmail.com",
+    6       "workingdays": [
+    7         "15",
+    8         "20",
+    9         "21",
+   10         "16",
+   11         "17",
+   12         "18",
+   13         "18",
+   14         "16",
+   15         "19",
+   16         "22",
+   17         "22",
+   18         "20"
+   19       ]
+   20     },
+   21     {
+   22       "eid": "2",
+   23       "Email": "abc2@hackermail.com",
+   24       "workingdays": [
+   25         "18",
+   26         "20",
+   27         "21",
+   28         "16",
+   29         "17",
+   30         "20",
+   31         "18",
+   32         "22",
+   33         "19",
+   34         "22",
+   35         "22",
+   36         "20"
+   37       ]
+   38     },
+   39     {
+   40       "eid": "3",
+   41       "Email": "abc3@engineer.com",
+   42       "workingdays": [
+   43         "17",
+   44         "20",
+   45         "21",
+   46         "16",
+   47         "20",
+   48         "20",
+   49         "20",
+   50         "22",
+   51         "19",
+   52         "22",
+   53         "22",
+   54         "20"
+   55       ]
+   56     },
+   57     {
+   58       "eid": "4",
+   59       "Email": "abc4@fastservice.com",
+   60       "workingdays": [
+   61         "22",
+   62         "20",
+   63         "21",
+   64         "18",
+   65         "20",
+   66         "20",
+   67         "20",
+   68         "22",
+   69         "19",
+   70         "22",
+   71         "22",
+   72         "20"
+   73       ]
+   74     }
+   75   ]
+   76 }
+   77 
+test.js
+    1 /* Write a Java Script Program to fetch JSON data that has the list of number of days 
+    2 the employee worked each month of the year,
+    3 Calculate the average no of working days and display the months where he exceeded his average .
+    4 
+    5 NOTE : Please refer employeeInfo.json
+    6 
+    7 
+    8 Sample Input 1:
+    9 ---------------
+   10 Enter the Employee Id: 1
+   11 
+   12 Sample Output 1:
+   13 ----------------
+   14 2: 20                                                                                                                   
+   15 3: 21                                                                                                                   
+   16 9: 19                                                                                                                   
+   17 10: 22                                                                                                                  
+   18 11: 22                                                                                                                  
+   19 12: 20        
+   20 
+   21 Sample Input 2:
+   22 ---------------
+   23 Enter the Employee Id: 5
+   24 
+   25 Sample Output 2:
+   26 ----------------                                                                                              
+   27 Invalid Employee Id! Kindly check.
+   28 
+   29 
+   30 */
+   31 let obj = require('./employeeInfo.json');
+   32 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   33 let eid;
+   34 readline.question('Enter the Employee Id: ',function(line){
+   35     eid=line;
+   36     solution(eid,obj.edata);
+   37     readline.close();
+   38 });
+   39 
+   40 function solution(id,obj)
+   41 {
+   42     //Write your code here
+   43    /* const employee = obj.find(e=>e.eid===id);
+   44     if(!employee)
+   45         console.log("Invalid Employee Id! Kindly check.");
+   46     else
+   47     {
+   48         const monworkdays = employee.workingdays;
+   49         const months = Object.keys(monworkdays);
+   50         const totaldays = Object.values(monworkdays).reduce((acc,days)=>acc+days,0);
+   51         const avgdays = totaldays/months.length;
+   52         months.foreach(month=>{
+   53             if(monworkdays[month]>avgdays)
+   54             {
+   55                 console.log(`${month}: ${monworkdays[month]}`);
+   56             }
+   57         })
+   58         
+   59     }*/
+   60     let flag = true;
+   61     let sum =0,avg=0;
+   62     for(let i of obj)
+   63     {
+   64        if(i.eid===id)
+   65        {
+   66            flag=true;
+   67            for(let j =0;j<12;j++)
+   68            {
+   69                sum+=parseInt(i.workingdays[j]);
+   70                
+   71            }
+   72            avg = sum/12;
+   73            for(let k=0;k<12;k++)
+   74            {
+   75                if(i.workingdays[k]>avg)
+   76                {
+   77                    console.log(`${k+1} :${k.workingdays[k]}`);
+   78                }
+   79            }
+   80        }
+   81     }
+   82     if(!flag)
+   83         console.log("Invalid Employee Id! Kindly check.");
+   84   }
+   85 
+Submitted On Tuesday, 27 February 2024, 9:42 AM

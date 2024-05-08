@@ -1,0 +1,51 @@
+DashboardLogout (Gayathridevi Chithambaram)
+Dashboard / Review
+Submission Fullview
+test.js
+    1 /*
+    2 Mr. Somanath, a mathematics teacher, wants to test his students' understanding of arrays and JavaScript functions. He has given them a task to implement a function called countOddsAndEvens that takes in an array of numbers. The function should return an object with two properties: odds and evens, representing the count of odd and even numbers in the array, respectively.
+    3 
+    4 The students are not allowed to use any traditional loops such as for or while, or the forEach method. They should use the reduce method to solve the problem.
+    5 
+    6 Write a function countOddsAndEvens that fulfills the requirements mentioned above.
+    7 Input Format :
+    8 --------------
+    9 Line 1 : N space-separated numbers.
+   10 
+   11 Output Format :
+   12 ---------------
+   13 Line 1 : An Object with TWO properties
+   14 
+   15 
+   16 Sample Input 1:
+   17 ---------------
+   18 9 3 7 6 8 1 10
+   19 
+   20 Sample Output 1:
+   21 ---------------
+   22 { odds: 4, evens: 3 }
+   23 
+   24 Explanation 1:
+   25 -------------
+   26 The array contains 2 even numbers and 4 odd numbers
+   27 
+   28 
+   29 */
+   30 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   31 let list;
+   32 readline.question('',function(line){
+   33         list = line.split(" ").map(Number);
+   34         countOddsAndEvens(list);
+   35         readline.close();
+   36     });
+   37  
+   38 function countOddsAndEvens(list){
+   39     //Write your logic here
+   40 const initalacc ={
+   41     odds:0,
+   42     evens:0
+   43     };
+   44     initalacc.evens = list.filter(num=>num%2===0).length;
+   45     initalacc.odds = list.filter(num=>num%2!==0).length;
+   46     console.log("{ odds:",initalacc.odds,", evens:",initalacc.evens,"}");
+   47 }

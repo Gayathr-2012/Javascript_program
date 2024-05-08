@@ -1,0 +1,78 @@
+/* Julia has started to learn about vowels and consonants. 
+    2 She needs to practise more to understand the concept better. 
+    3 Can you help her correct her worksheet? 
+    4 
+    5 Accept 3 words and print only those words that contain vowels. 
+    6 
+    7 HINT: 
+    8 Write a function that checks for vowels and returns true or false. 
+    9 Call this function from the main function.
+   10 
+   11 NOTE : 
+   12 If no vowels present in words, print "none".
+   13 
+   14 Input Format :
+   15 --------------
+   16 Line 1 : A list of words
+   17 
+   18 Output Format :
+   19 ---------------
+   20 Line 1 : A list of words which has vowels/none.
+   21 
+   22 Sample Input 1 :
+   23 ----------------
+   24 most myth grEat
+   25 
+   26 Sample Output 1 :
+   27 ----------------
+   28 most grEat
+   29 
+   30 
+   31 Sample Input 2 :
+   32 ----------------
+   33 tryst dry cry
+   34 
+   35 Sample Output 2 :
+   36 ----------------
+   37 none
+   38 
+   39 
+   40 
+   41 */
+   42 
+   43 
+   44 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   45 let words;
+   46 readline.question('',function(line){
+   47         words = line.split(" ");
+   48         solution(words[0],words[1],words[2]);
+   49         readline.close();
+   50     });
+   51  
+   52 function vowelCheck(word){
+   53     let a=word.toLowerCase();
+   54     console.log(a)
+   55     for(let i=0;i<a.length;i++){
+   56       if(a[i]=='a'||a[i]=='e'||a[i]=='i'||a[i]=='o'||a[i]=='u'){
+   57         return true;
+   58       }
+   59     }
+   60     return false;
+   61 }
+   62 function solution(word1, word2, word3){
+   63     //Write your logic here
+   64     let words = [word1,word2,word3];
+   65    let wordsWithVowels =words.filter(function(word)
+   66    {
+   67        return vowelCheck(word);
+   68    });
+   69    if(wordsWithVowels.length>0)
+   70    {
+   71        console.log(wordsWithVowels.join(" "));
+   72    }
+   73    else
+   74    {
+   75        console.log("none");
+   76    }
+   77  }
+   78 

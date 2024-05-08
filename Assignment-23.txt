@@ -1,0 +1,112 @@
+/* Jake believes that life is all about balance.
+    2 He applies it to numbers as well.
+    3 Given a set of numbers, he tries to add the numbers from left to right and then at the same time, 
+    4 numbers from right to left, he sees of at any point, the left sum is equal to the right sum. 
+    5 
+    6 And when this happens, he calls that index where the two sums balance as the balance index.
+    7 
+    8 Note : If no balanced index found print "-1".
+    9 
+   10 Input Format :
+   11 --------------
+   12 Line 1 : N space-separated numbers.
+   13 
+   14 Output Format :
+   15 ---------------
+   16 Line 1 : A number, the balance index.
+   17 
+   18 
+   19 Sample Input 1:
+   20 ---------------
+   21 9 3 7 6 8 1 10
+   22 
+   23 Sample Output 1:
+   24 ---------------
+   25 3
+   26 
+   27 Explanation :
+   28 -------------
+   29 Given array 9 3 7 6 8 1 10 
+   30 here 9+3+7 = 8+1+10 
+   31 The number 6 seems to be the one separating these two sums. 
+   32 The index of 6 is 3. So, the answer is 3.
+   33 
+   34 Sample Input 2:
+   35 ---------------
+   36 0 -4 7 -4 -2 6 -3 0
+   37 
+   38 Sample Output 2:
+   39 ---------------
+   40 5
+   41 
+   42 Explanation :
+   43 -------------
+   44 0 -4 7 -4 -2 6 -3 0
+   45 0+ (-4) +7 + (-4) + (-2) = -3+0
+   46 => -3 = -3
+   47 Balance number is 6, and index of 6 is 5
+   48 
+   49 */
+   50 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   51 let list;
+   52 readline.question('',function(line){
+   53         list = line.split(" ").map(Number);
+   54         let res = solution(list);
+   55         //let res1 = res.reduce((acc,dig)=>acc*10+dig,0);
+   56         let res1 = res.join(' ');
+   57         console.log(res1);
+   58        //solution(list);
+   59         readline.close();
+   60     });
+   61  
+   62 function solution(list){
+   63     //Write your logic here
+   64    //9 3 7 6 8 1 10 
+   65    //9 0 0 6 8 1
+   66   /*  for(let i=1;i<list.length;i++)
+   67       {
+   68         let leftsum =0;
+   69         for(let j=i-1;j>=0;j--)
+   70         {
+   71            leftsum += list[j];
+   72         }
+   73         let rightsum =0;
+   74         for(let k= i+1;k<list.length;k++)
+   75         {
+   76             rightsum +=list[k];
+   77         }
+   78         if(leftsum === rightsum)
+   79         {
+   80             return i;
+   81            
+   82         }
+   83       }
+   84      return -1;*/
+   85    
+   86      let balance =[];
+   87     for(let i=1;i<list.length;i++)
+   88       {
+   89         
+   90         let leftsum =0;
+   91        
+   92         for(let j=i-1;j>=0;j--)
+   93         {
+   94            leftsum += list[j];
+   95         }
+   96         let rightsum =0;
+   97         for(let k= i+1;k<list.length;k++)
+   98         {
+   99             rightsum +=list[k];
+  100         }
+  101         if(leftsum === rightsum)
+  102         {
+  103             balance.push(i);
+  104             //return balance;
+  105         }
+  106        
+  107       }
+  108         
+  109      return balance.length>0 ? balance :"-1";
+  110    
+  111 }
+  112 

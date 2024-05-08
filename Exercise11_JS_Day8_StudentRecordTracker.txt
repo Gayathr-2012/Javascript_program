@@ -1,0 +1,62 @@
+/*
+    2 1. Create a JavaScript object called Student with properties name, branch, and Marks. 
+    3 The Marks property should be an array of 5 integers, where each integer represents one subject marks.
+    4 
+    5 2. Create another javascript object called displayStudent that contains a method called "printInfo()" for printing the above object's(Student) name and branch.
+    6 
+    7 3. Additionally, add a method called "getAverageMarks()" to the object displayStudent that returns the average of all subject marks. 
+    8 
+    9 Note : Print the Average marks upto 2 decimal places
+   10 
+   11 Consider the Student details with below data:
+   12 
+   13 Name: Rohan
+   14 branch: Computer Science
+   15 Marks array: contains FIVE subject marks 80,85,90,75,95 
+   16 
+   17 Expected Output:
+   18 ----------------------
+   19 Name: Rohan
+   20 Branch: Computer Science
+   21 Average Marks: 85.00
+   22 
+   23 */
+   24 // Create Student object Here
+   25 const STUDENT={
+   26     name: "Rohan",
+   27     branch: "Computer Science",
+   28     marks: [80,85,90,75,95],
+   29     printInfo:function()
+   30     {
+   31         console.log(`Name: ${STUDENT.name}`);
+   32         console.log(`Branch: ${STUDENT.branch}`);
+   33     },
+   34     getAverageMarks:function()
+   35     {
+   36         let tot =0;
+   37         for(let i of STUDENT.marks)
+   38         {
+   39             tot+=i;
+   40             
+   41         }
+   42         let avg = (tot/this.marks.length).toFixed(2);
+   43         //console.log(Average Marks:)
+   44         return avg;
+   45     }
+   46     
+   47 }
+   48 
+   49 
+   50 /*
+   51 Here Create a displayStudent object  with TWO methods "printInfo()" and "getAverageMarks()".
+   52 */
+   53 
+   54 
+   55 
+   56 // Print student info
+   57 //displayStudent.printInfo();
+   58 STUDENT.printInfo();
+   59 console.log(`Average Marks: ${STUDENT.getAverageMarks()}`);
+   60 // Print average marks
+   61 //console.log(`Average Marks: ${displayStudent.getAverageMarks()}`);
+   62 

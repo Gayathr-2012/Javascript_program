@@ -1,0 +1,79 @@
+/*
+    2 One day, as Alice was studying the Fibonacci sequence, she came across a peculiar problem. The problem stated that she needed to find the Nth number in the Fibonacci sequence.
+    3 Excited by the challenge, Alice set out to solve it.
+    4 
+    5 The Fibonacci series is a fascinating mathematical sequence where each number is the sum of the two preceding ones. It starts with 0 and 1, and then continues like this:
+    6 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
+    7 
+    8 Can you help Alice with a javascript program?
+    9 
+   10 NOTE: For boundary conditions(Negative Numbers or Zero), print -1.
+   11 
+   12 Input Format :
+   13 --------------
+   14 Line-1 : A Number
+   15  
+   16 Output Format :
+   17 ---------------
+   18 Line-1 : A number, The Nth Fibonacci Number
+   19 
+   20  
+   21 Sample Input 1:
+   22 ---------------
+   23 1
+   24 Sample Output 1:
+   25 ---------------
+   26 0
+   27 Explanation 1:
+   28 --------------
+   29 The First Fibonacci Number is 0
+   30 
+   31 Sample Input 2:
+   32 ---------------
+   33 2
+   34 Sample Output 2:
+   35 ---------------
+   36 1
+   37 
+   38 Sample Input 3:
+   39 ---------------
+   40 -3
+   41 Sample Output 3:
+   42 ---------------
+   43 -1
+   44 */
+   45 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   46 let num;
+   47 readline.question('',function(line){
+   48         num=parseInt(line);
+   49         solution(num);
+   50         readline.close();
+   51     });
+   52  
+   53 function solution(num){
+   54     //Write your logic here
+   55     if(num<=0)
+   56     {
+   57     console.log(-1);
+   58     }
+   59     else if(num==1)
+   60     {
+   61     console.log(0);
+   62     }
+   63     else if(num==2)
+   64     {
+   65     console.log(1);  
+   66     }
+   67     else
+   68     {
+   69         let res,start =0,next =1;
+   70         for(let i=2;i<num;i++)
+   71         {
+   72            res = start+next;
+   73            start= next;
+   74            next =res;
+   75         }
+   76         console.log(res);
+   77     }
+   78    
+   79 }

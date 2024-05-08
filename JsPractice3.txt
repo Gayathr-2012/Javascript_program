@@ -1,0 +1,73 @@
+let s1 = new Set([1,2,3,4,5]);
+    2 let s2 = new Set([1,2,2,2,2,2,2,2,2]);
+    3 let s3 = new Set("Food");
+    4 let s4 = new Set(["Shobana","Erick","Kevin","Venu"]);
+    5 //let s5 = new Set(1,2,3,4,5);
+    6 //let s6 = new Set(1)//it won't allow
+    7 let s5 = new Set();
+    8 console.log(s1);
+    9 console.log(s2);
+   10 console.log(s3);
+   11 //console.log(s5);
+   12 s5.add(1);
+   13 //s5.add(5);
+   14 console.log(s5);
+   15 //chaining
+   16 s5.add(4).add("5th").add(6);
+   17 console.log(s5);
+   18 let s6 = new Set().add([1,2,3,4,5,6]).add(["7th","8th","9th"]);
+   19 console.log(s6);
+   20 console.log(s5.size);
+   21 console.log(s5[0]);//Indexing is not working
+   22 //Destructuring
+   23 
+   24 let[f,,t,,,s]=s5;
+   25 console.log(f);
+   26 console.log(t);
+   27 console.log(s);
+   28 
+   29 console.log("********Indexing*****");
+   30 //approach -2 (spreadoperator - indexing)
+   31 const sec =[...s5][1];
+   32 console.log(sec);
+   33 
+   34 //app -3
+   35 for(let i =0;i<s5.size;i++)
+   36 {
+   37     console.log(s5[i]);
+   38     console.log(i);
+   39     console.log([...s5][i]);
+   40     
+   41 }
+   42 
+   43 //app  - 4(not working)
+   44 console.log("*********************")
+   45 for(let i in [...s5])
+   46 {
+   47     console.log(i);
+   48 }
+   49 
+   50 //app -5
+   51 console.log("******************")
+   52 for(let i of s5)
+   53 {
+   54     console.log(i);
+   55 }
+   56 
+   57 //using foreach
+   58 s5.forEach((item)=>console.log(item));
+   59 
+   60 // A U B - Intersection
+   61 let a = [1,2,3,4,5];
+   62 let b = [6,7,8,1,2];
+   63 
+   64 let set_A = new Set(a);
+   65 let set_B = new Set(b);
+   66 let set_C = new Set([...a,...b]);
+   67 console.log("union: ",set_C);
+   68 
+   69 //A intersection B 
+   70 let c =a.filter((item)=>set_B.has(item));
+   71 let set_c1 = new Set(c);
+   72 console.log(set_c1);
+Submitted On Tuesday, 27 February 2024, 10:23 AM

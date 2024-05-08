@@ -1,0 +1,59 @@
+/*
+    2 
+    3 Your task is to print the vowel count for given string.
+    4 
+    5 Input Format:
+    6 -------------
+    7 Line 1: A string
+    8 
+    9 Output Format:
+   10 --------------
+   11 Line 2: A vowel and its count, refer Sample Output
+   12 
+   13 Sample Input 1:
+   14 ---------------
+   15 awesome
+   16 
+   17 Sample Output 1:
+   18 ----------------
+   19 a = 1
+   20 e = 2
+   21 o = 1
+   22 
+   23 Sample Input 2:
+   24 ---------------
+   25 ProcAreEr
+   26 
+   27 Sample Output 2:
+   28 ----------------
+   29 o = 1
+   30 a = 1
+   31 e = 2
+   32 
+   33 */
+   34 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   35 let word;
+   36 readline.question('',function(line){
+   37         word = line;
+   38         solution(word);
+   39         readline.close();
+   40     });
+   41 function solution(str){
+   42     //Write your logic here
+   43     
+   44     str = str.toLowerCase();
+   45     const count ={};
+   46     const vows = "aeiou";
+   47     for(let c of str)
+   48     {
+   49         if(vows.includes(c))
+   50         {
+   51             count[c]=(count[c]||0)+1;
+   52         }
+   53     }
+   54     for(let v in count)
+   55     {
+   56         console.log(`${v} = ${count[v]}`);
+   57     }
+   58 }
+   59 

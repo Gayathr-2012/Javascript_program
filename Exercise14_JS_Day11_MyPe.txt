@@ -1,0 +1,44 @@
+/*
+    2 	1. Create a Map called "myPet" with the following entries:
+    3         - name -> "Sudo"
+    4         - type -> "Dog"
+    5         - breed -> "Poodle"
+    6         - age -> 7
+    7         - friends -> ["Bit", "Byte", "Data"]
+    8  
+    9 	2. Print out "myPet" to the terminal
+   10  
+   11 	3. Add a new entry: colour -> "Black"
+   12  
+   13 	4. Change "breed" to be "Beagle"
+   14  
+   15 	5. Remove "Data" from the list of friends for "myPet"
+   16 	
+   17 	6. Print out "myPet" to the terminal again
+   18  
+   19 	7. Add "Chip" to the list of friends for "myPet"
+   20  
+   21 	8. Print out "myPet" to the terminal again
+   22 */
+   23 
+   24 let myPet = new Map([
+   25     ["name","Sudo"],
+   26     ["type","Dog"],
+   27     ["breed","Poodle"],
+   28     ["age",7],
+   29     ["friends",["Bit","Byte","Data"]],
+   30     ]);
+   31 
+   32 console.log(myPet);
+   33 //console.log(Object.fromEntries(myPet));
+   34 
+   35 myPet.set("colour","Black");
+   36 myPet.set("breed","Beagle");
+   37 let friends = myPet.get("friends");
+   38 let updatefri = friends.filter(friend=>friend!="Data");
+   39 myPet.set("friends",updatefri);
+   40 console.log(myPet);
+   41 myPet.get("friends").push("Chip");
+   42 console.log(myPet);
+   43     
+Submitted On Wednesday, 28 February 2024, 9:34 AM

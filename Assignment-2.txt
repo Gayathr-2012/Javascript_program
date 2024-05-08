@@ -1,0 +1,51 @@
+/* Cindy and Melody have gone trick-or-treating and are back with a basket full of candies. 
+    2 They have counted the candies and are not sure whether or not they can split the candies equally between them.  
+    3 Given the count , can you help them figure this out? 
+    4 Print “You both will get equal candies” when they can split them equally. 
+    5 if not print “One of you will get one more than the other”
+    6 
+    7 Input Format :
+    8 --------------
+    9 Line-1 : A number 
+   10 
+   11 Output Format :
+   12 ---------------
+   13 Line-1 : Print You both will get equal candies or One of you will get one more than the other
+   14 
+   15 Sample Input 1 :
+   16 ---------------
+   17 15
+   18 
+   19 Sample Output 1 :
+   20 ----------------
+   21 One of you will get one more than the other
+   22 
+   23 
+   24 Sample Input 2 :
+   25 ---------------
+   26 8
+   27 
+   28 Sample Output 2 :
+   29 ----------------
+   30 You both will get equal candies
+   31 
+   32 */
+   33 
+   34 let readline=require('readline').createInterface({input:process.stdin,output:process.stdout});
+   35 let candies;
+   36 readline.question('',function(line){
+   37         candies=parseInt(line);
+   38         solution(candies);
+   39         readline.close();
+   40     });
+   41 function solution(candies){
+   42     //Write your logic here
+   43     if(candies%2==0)
+   44     {
+   45         console.log("You both will get equal candies")
+   46     }
+   47     else
+   48         console.log("One of you will get one more than the other");
+   49 }
+   50 
+

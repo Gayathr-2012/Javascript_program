@@ -1,0 +1,77 @@
+class Person{
+    2     //let height =50;
+    3     //let weight =20;
+    4     constructor(name,ssn,age,address){
+    5         console.log("Constructor called");
+    6         this.name = name;
+    7         this.ssn = ssn;
+    8         this.age = age;
+    9         this.address = address;
+   10     }
+   11     /*constructor2(age,address){
+   12         console.log("Constructor called2");
+   13         //this.name = name;
+   14        // this.ssn = ssn;
+   15         this.age = age;
+   16         this.address = address;
+   17     }*/
+   18     
+   19     sing()
+   20     {
+   21         console.log("sing called....");
+   22         //{return height+weight;
+   23     }
+   24 }
+   25 const pobj1 = new Person();
+   26 pobj1.sing();
+   27 
+   28 let n = "shobana";
+   29 let sno = 123;
+   30 let age = 6;
+   31 let add = "1956 Base line roda";
+   32 const pobj2 = new Person(n,sno,age,add);
+   33 console.log(pobj2.name);
+   34 console.log(pobj2.ssn);
+   35 //const pobj3 = new Person(age,add);
+   36 console.log(pobj2.age);
+   37 console.log(pobj2.address);
+   38 console.log(pobj2.sing());
+   39 
+   40 
+   41 
+   42 /*class Person5{
+   43     #weight = 20;
+   44     constructor(weight)
+   45     {
+   46         this.#weight=weight;
+   47     }
+   48     
+   49 }
+   50 const p1 = new Person5(80);
+   51 console.log(p1.weight);*/
+   52 
+   53 class Car
+   54 {
+   55     #eng_num = 234;
+   56     constructor(make,model)
+   57     {
+   58         this.make = make;
+   59         this.model = model;
+   60         this.#eng_num = 444;
+   61     }
+   62     accelerate()
+   63     {
+   64         console.log("accelerate called");
+   65         this.#hello();
+   66     }
+   67     #hello()
+   68     {
+   69         console.log("private mthd called");
+   70     }
+   71 }
+   72 const obj = new Car("Audi","Q7");
+   73 console.log(obj.make);
+   74 //console.log(obj.eng_num);
+   75 
+   76 
+Submitted On Thursday, 29 February 2024, 11:11 AM
